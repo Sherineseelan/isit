@@ -20,8 +20,8 @@ jobs:
         mkdir ~/.ssh
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        ssh -o StrictHostKeyChecking=no ec2-user@3.87.49.194 << EOF
+        ssh -o StrictHostKeyChecking=no ec2-user@54.198.74.20 << EOF
         sudo su
-        docker pull ${{ secrets.DOC_USERNAME }}/test:aio
+        docker pull ${{ secrets.DOC_USERNAME }}/docai:one
         docker run -p 80:80 -d ${{ secrets.DOC_USERNAME }}/docai:one
         EOF
